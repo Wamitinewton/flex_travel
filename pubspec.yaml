@@ -32,18 +32,32 @@ flutter:
     - assets/images/
     - assets/icons/
 
-  
-  # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
-  #   - family: Trajan Pro
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
-  #       - asset: fonts/TrajanPro_Bold.ttf
-  #         weight: 700
-  #
+  fonts:
+  - family: NunitoSans
+    fonts:
+      - asset: assets/fonts/NunitoSans_Regular.ttf
+      - asset: assets/fonts/NunitoSans_Light.ttf
+        weight: 300
+      - asset: assets/fonts/NunitoSans_SemiBold.ttf
+        weight: 600
+      - asset: assets/fonts/NunitoSans_Bold.ttf
+        weight: 700
+      - asset: assets/fonts/NunitoSans_ExtraBold.ttf
+        weight: 800
+
+  - family: Gelasio
+    fonts:
+      - asset: assets/fonts/Gelasio_Regular.ttf
+      - asset: assets/fonts/Gelasio_Medium.ttf
+        weight: 500
+      - asset: assets/fonts/Gelasio_SemiBold.ttf
+        weight: 600
+      - asset: assets/fonts/Gelasio_Bold.ttf
+        weight: 700
+
+  - family: Merriweather
+    fonts:
+      - asset: assets/fonts/Merriweather_Regular.ttf
+      - asset: assets/fonts/Merriweather_Bold.ttf
+        weight: 700
   

@@ -1,4 +1,5 @@
-import 'package:flextravel/presentation/onboarding/onboarding_screen.dart';
+import 'package:flextravel/bindings.dart';
+import 'package:flextravel/routes/pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -14,7 +15,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: OnboardingScreen(),
+      initialRoute: AppPages.initial,
+      getPages: AppPages.routes,
+      initialBinding: AppBindings(),
     );
   }
 }
