@@ -1,6 +1,6 @@
 import 'package:flextravel/common/widgets/input.dart';
 import 'package:flextravel/constants.dart';
-import 'package:flextravel/controllers/auth_controller.dart';
+import 'package:flextravel/domain/auth_controller.dart';
 import 'package:flextravel/routes/names.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -13,7 +13,7 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
-  final AuthController _authController = Get.find();
+  final AuthController _authController = Get.find<AuthController>();
   bool _showPassword = true;
 
   void _toggelPasswordVisibility() {
@@ -125,7 +125,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   Padding(
                     padding: const EdgeInsets.only(bottom: 16),
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        _authController.signUp();
+                      },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.red[600],
                         padding: const EdgeInsets.symmetric(

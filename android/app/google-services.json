@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "504477659561",
+    "project_id": "flextravel-d9364",
+    "storage_bucket": "flextravel-d9364.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:504477659561:android:c77768a34b176f227bd4b8",
+        "android_client_info": {
+          "package_name": "com.example.flextravel"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1B4iHumq-7S-9GDEikMUDiLFqRUy7byM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
