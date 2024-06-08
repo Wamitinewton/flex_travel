@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flextravel/data/auth_service.dart';
+import 'package:flextravel/domain/avatar_controller.dart';
 import 'package:flextravel/providers/user.dart';
 import 'package:flextravel/routes/names.dart';
 import 'package:flutter/material.dart';
@@ -17,6 +18,8 @@ class AuthController extends GetxController {
   RxString userName = ''.obs;
   RxBool isLoading = false.obs;
   Rx<User?> user = Rx<User?>(null);
+
+  final ImageController imageController = Get.put(ImageController());
 
   static const String lastLoginKey = 'lastLogininTime';
   static const int sessionDurationDays = 7;
