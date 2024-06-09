@@ -49,6 +49,13 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
                       ),
                     ),
                   ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  const Text(
+                    'Newton Wamiti',
+                    style: kNunitoSansBold18,
+                  )
                 ],
               ),
             ],

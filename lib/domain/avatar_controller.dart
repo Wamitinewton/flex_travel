@@ -15,12 +15,32 @@ class ImageController extends GetxController {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final FirebaseFirestore _firebaseFirestore = FirebaseFirestore.instance;
   late Box<CachedData> cacheBox;
+  RxString username = ''.obs;
 
   @override
   void onInit() {
     super.onInit();
     cacheBox = Hive.box<CachedData>('cacheBox');
     _loadInitialAvatarUrl();
+    _loadUsername();
+  }
+
+  Future<void> _loadUsername() async {
+    try {
+      User? user = _auth.currentUser;
+      if (user != null) {
+        DocumentSnapshot userDoc =
+            await _firebaseFirestore.collection('users').doc(user.uid).get();
+        var userData = userDoc.data() as Map<String, dynamic>?;
+        if (userDoc.exists &&
+            userData != null &&
+            userData.containsKey('username')) {
+          username.value = userData['username'];
+        }
+      }
+    } catch (e) {
+      Get.snackbar('Error', 'Failed to load username: $e');
+    }
   }
 
   Future<void> _loadInitialAvatarUrl() async {

@@ -18,6 +18,7 @@ class UserData {
     email = json['email'];
     password = json['password'];
     confirmPassword = json['confirmPassword'];
+    name = json['name'];
   }
 
   Map<String, dynamic> toJson() {
@@ -26,6 +27,7 @@ class UserData {
     map['email'] = email;
     map['password'] = password;
     map['confirmPassword'] = confirmPassword;
+    map['name'] = name;
     return map;
   }
 }
