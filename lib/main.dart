@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flextravel/bindings.dart';
 import 'package:flextravel/domain/auth_controller.dart';
-import 'package:flextravel/presentation/auth/login/login_page.dart';
+import 'package:flextravel/hive/cached_data.dart';
 import 'package:flextravel/presentation/home/home_screen.dart';
 import 'package:flextravel/presentation/onboarding/onboarding_screen.dart';
 import 'package:flextravel/routes/pages.dart';
@@ -9,10 +9,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:hive/hive.dart';
+import 'package:hive_flutter/adapters.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Hive.initFlutter();
+  Hive.registerAdapter(CachedDataAdapter());
+  await Hive.openBox<CachedData>('cacheBox');
   await Firebase.initializeApp(
       options: const FirebaseOptions(
     apiKey: "AIzaSyB1B4iHumq-7S-9GDEikMUDiLFqRUy7byM",

@@ -12,6 +12,7 @@ class HomeScreenPage extends StatefulWidget {
 
 class _HomeScreenPageState extends State<HomeScreenPage> {
   final ImageController imageController = Get.find<ImageController>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,32 +20,37 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
       body: SafeArea(
           child: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.only(top: 15, left: 15),
+          padding: const EdgeInsets.only(top: 15, left: 15),
           child: Column(
             children: [
               Row(
                 children: [
                   GestureDetector(
                     onTap: () {
-                      imageController.pickeImage();
+                      imageController.pickImage();
                     },
-                    child: CircleAvatar(
+                    child: Obx(
+                      () => CircleAvatar(
                         radius: 38,
                         backgroundColor: Colors.green,
-                        child: Obx(
-                          () => CircleAvatar(
-                            backgroundColor: Colors.black,
-                            radius: 35,
-                            backgroundImage:
-                                imageController.imageFile.value != null
-                                    ? FileImage(imageController.imageFile.value!)
-                                    : AssetImage("assets/images/pic1.jpg")
-                                        as ImageProvider,
-                          ),
-                        )),
-                  )
+                        child: CircleAvatar(
+                          backgroundColor: Colors.black,
+                          radius: 35,
+                          backgroundImage:
+                              imageController.imageFile.value != null
+                                  ? FileImage(imageController.imageFile.value!)
+                                  : (imageController.avatarUrl.value.isNotEmpty
+                                          ? NetworkImage(
+                                              imageController.avatarUrl.value)
+                                          : const AssetImage(
+                                              "assets/images/pic1.jpg"))
+                                      as ImageProvider,
+                        ),
+                      ),
+                    ),
+                  ),
                 ],
-              )
+              ),
             ],
           ),
         ),
